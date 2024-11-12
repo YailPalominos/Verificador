@@ -1,23 +1,25 @@
 import pyttsx3
 
-# Inicializar el motor de TTS
-engine = pyttsx3.init()
+class Voz:
+    def __init__(self):
+        # Inicializar el motor de TTS
+        self.engine = pyttsx3.init()
 
-# Obtener las voces disponibles
-voices = engine.getProperty('voices')
+        # Obtener las voces disponibles
+        voices = self.engine.getProperty('voices')
+        
+        # Seleccionar una voz en particular
+        if len(voices) > 3:
+            self.engine.setProperty('voice', voices[3].id)
+        else:
+            self.engine.setProperty('voice', voices[0].id)  # Por si la voz 3 no está disponible
 
-# Seleccionar una voz (por ejemplo, la primera)
-engine.setProperty('voice', voices[0].id)
+        # Establecer la velocidad de habla
+        self.engine.setProperty('rate', 170)  # Ajusta la velocidad de lectura
 
-# Establecer la velocidad (rate) más lenta
-engine.setProperty('rate', 170)  # La velocidad estándar es 200, menor es más lento
+    def decir_mensaje(self, contenido):
+        # Pasar el contenido al motor para que lo lea
+        self.engine.say(contenido)
 
-# Definir la cadena que quieres que se lea en voz alta
-cadena = "Buen día,Braulio Yail"
-
-# Hacer que el motor diga la cadena
-engine.say(cadena)
-
-# Ejecutar el motor para que hable
-engine.runAndWait()
-
+        # Ejecutar el motor para que hable
+        self.engine.runAndWait()

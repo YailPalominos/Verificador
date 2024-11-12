@@ -1,0 +1,5 @@
+Activar el entorno virtuar
+.\venv\Scripts\activate
+
+Paquete para usar el RFid
+pip install mfrc522

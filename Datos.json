@@ -1,5 +1,6 @@
 {
-    "token_jwt": "azSdsa12kn3je1o2id812ne3ok1-12ewokn12okn1ne12on12okneoknko",
-    "url": "https://tuapi.com/solicitud",
-    "identificador": "1"
+    "url": "http://192.168.1.9:5025/Verificacion/CreateMultiples",
+    "identificador": "1",
+    "usuario": "Yail",
+    "contrasena": "Yail12345*"
 }
