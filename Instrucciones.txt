@@ -3,3 +3,10 @@ Activar el entorno virtuar
 
 Paquete para usar el RFid
 pip install mfrc522
+
+Paquete para usar la voz
+pip install pyttsx3
+
+Paquete de reconocimento facial
+pip freeze
+pip install face-recognition

@@ -1,25 +1,30 @@
 import sqlite3
 
-# Conectar a la base de datos o crearla si no existe
-conn = sqlite3.connect('Verificador.db')
-cursor = conn.cursor()
+# Función para conectar a la base de datos
+def connect_db():
+    return sqlite3.connect('Verificador.db')
 
-# Eliminar la tabla Verificaciones si ya existe
-cursor.execute('DROP TABLE IF EXISTS Verificaciones')
-conn.commit()
+# Función para insertar un nuevo usuario en la tabla
+def create_usuario(usuario, pin, rfid, nombres, apellidos, direccion_correo_electronico, huella=None, foto=None, turno=None):
+    with connect_db() as conn:
+        cursor = conn.cursor()
+        
+        # Insertar el nuevo usuario en la tabla Usuarios
+        cursor.execute('''INSERT INTO Usuarios (usuario, pin, rfid, nombres, apellidos, direccion_correo_electronico, huella, foto, turno)
+                          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)''',
+                       (usuario, pin, rfid, nombres, apellidos, direccion_correo_electronico, huella, foto, turno))
+        conn.commit()
+        print("Nuevo usuario creado.")
 
-# Crear una nueva tabla Verificaciones con el campo 'categoria'
-cursor.execute('''
-    CREATE TABLE Verificaciones (
-        id_verificador INTEGER NOT NULL PRIMARY KEY,
-        id INTEGER,
-        fecha DATETIME NOT NULL,
-        verificador INTEGER NOT NULL,
-        usuario NVARCHAR(50),
-        tipo NVARCHAR(50),
-        categoria NVARCHAR(2)  -- Añade el campo de categoria
-    )
-''')
-conn.commit()
-
-print("La tabla Verificaciones ha sido creada con el campo 'categoria'.")
+# # Ejemplo de uso: Crear un usuario
+# create_usuario(
+#     usuario="1",
+#     pin="12345",
+#     rfid="596940268731",
+#     nombres="John",
+#     apellidos="Doe",
+#     direccion_correo_electronico="jdoe@example.com",
+#     huella=None,  # Si tienes huella, aquí puedes poner un objeto binario
+#     foto=None,    # Lo mismo para la foto
+#     turno=1       # Asumiendo que "1" es un turno válido
+# )

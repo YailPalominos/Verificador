@@ -4,7 +4,7 @@ from Camara import Camara
 from Pin import Pin
 from Administrador import Administrador
 
-class VentanaPrincipal:
+class Principal:
     def __init__(self, root):
         self.root = root
         self.root.title("Ventana principal")
@@ -41,8 +41,8 @@ class VentanaPrincipal:
 # Crear la ventana principal
 root = tk.Tk()
 
-# Crear la instancia de la clase VentanaPrincipal
-ventana = VentanaPrincipal(root)
+# Crear la instancia de la clase Principal
+ventana = Principal(root)
 
 # Iniciar el bucle de la aplicación
 root.mainloop()
