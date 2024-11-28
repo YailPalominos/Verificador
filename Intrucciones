@@ -1,0 +1,35 @@
+-Crear el entorno virtual
+python3 -m venv entorno_virtual
+
+-Activar el entorno virtual
+source entorno_virtual/bin/activate
+
+-Paquete para usar el RFid
+pip install mfrc522
+
+-Paquete para usar la voz
+pip install pyttsx3
+
+-Paquete de reconocimento facial y modulo de camara con raspberrys
+pip install opencv-python-headless
+pip install Pillow
+pip install "picamera[array]"
+sudo apt-get install libraspberrypi-dev
+
+sudo apt install libcamera-apps 
+
+-Instalar FastAPI y Uvicorn para recepcion de solicitudes
+pip install fastapi uvicorns
+
+-Paquete para usar el sensor de huellas
+pip install pyserial
+pip install opencv-python
+
+
+-Paquete para usar las respuestas
+pip install requests
+
+-Paquete de GPIO
+pip install RPi.GPIO
+
+
